@@ -23,6 +23,17 @@ namespace MyWebApplication
             //Подключаем контекст БД
             builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(config.Database.ConnectionString));
 
+            //Настраиваем Identity систему
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppDbContext>();
+
             //Подключаем функционал контроллеров
             builder.Services.AddControllersWithViews();
 
