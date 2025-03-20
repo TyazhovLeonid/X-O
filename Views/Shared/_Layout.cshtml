@@ -1,26 +1,16 @@
-﻿<!DOCTYPE HTML>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ru">
 <head>
-	@await Html.PartialAsync("_MetaPartial")
-	@await Html.PartialAsync("_CssPartial")
+    @await Html.PartialAsync("_MetaPartial")
+    @await Html.PartialAsync("_CssPartial")
 </head>
-<body class="is-preload">
-	<div id="page-wrapper">
-
-		@await Html.PartialAsync("_HeaderPartial")
-
-		<!-- Main -->
-		<section class="wrapper style1">
-			<div class="container">
-				@RenderBody()
-			</div>
-		</section>
-
-		@await Html.PartialAsync("_FooterPartial")
-
-	</div>
-
-	@await Html.PartialAsync("_ScriptsPartial")
-
+<body>
+    @await Html.PartialAsync("_HeaderPartial")
+    <div class="content">
+        @await Html.PartialAsync("_SidebarPartial")
+        @RenderBody()
+        <div class="filters">Фильтры</div>
+    </div>
+    @await Html.PartialAsync("_FooterPartial")
 </body>
 </html>

@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif; /*штрифт*/
+    margin: 0; /* внешние отступы*/
+    padding: 0; /* внутренние отступы*/
+    background: #f0f0f0;
+}
+
+.header {
+    background: linear-gradient(90deg, #5e2d91, #a56ad7); /*градент*/
+    color: white; /*белый текст*/
+    padding: 15px;
+    display: flex; /* размещение элементов по строкам*/
+
+    align-items: center; /* Выравнивание элементов по центру по вертикали */
+    font-size: 20px; /*размер штрифта*/
+}
+
+    .header .menu {
+        display: flex;
+        gap: 10px; /*расстояние между кнопками*/
+        margin-left: auto;
+    }
+
+.student {
+    color: lightgreen;
+    margin-left: 10px;
+}
+
+.menu button {
+    background: #38205b;
+    color: white;
+    border: none;
+    padding: 10px 20px; /*вертикаль, горизонталь*/
+    border-radius: 20px; /*закругление кнопок*/
+    cursor: pointer; /*курсор на указатель*/
+}
+
+    .menu button:hover { /*изменение цвета кнопок при наведении*/
+        background: #5e2d91;
+    }
+
+.content {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 80px;
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Располагает элементы вертикально */
+    align-items: center;
+    gap: 20px;
+    margin-right: 10px;
+}
+
+    .sidebar img {
+        width: 30px; /* размер изображений*/
+        height: 30px;
+        cursor: pointer;
+    }
+
+.main {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table {
+    display: grid; /*таблица*/
+    grid-template-columns: 2fr 1fr 1fr 1fr; /*ширина колонок*/
+    gap: 10px; /*расстояние между столбцами*/
+    background: #e3c9f3;
+    padding: 10px; /*внутренний отступ между столбцами по всем сторонам*/
+    border-radius: 10px;
+}
+
+    .table div {
+        background: #a56ad7;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+.rows {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+    .rows div {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+.filters {
+    width: 200px;
+    background: #a56ad7;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+/* Основной контейнер футера */
+#footer-wrapper {
+    background: #5e2d91; /* Фиолетовый фон */
+    color: white; /* Белый текст */
+    padding: 20px 0; /* Внутренние отступы сверху и снизу */
+    text-align: center; /* Выравниваем текст */
+}
+
+/* Сам футер */
+#footer {
+    width: 80%; /* Делаем футер уже, чтобы не растягивался */
+    margin: 0 auto; /* Центрируем */
+}
+
+/* Копирайт */
+#copyright {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+}
+
+    /* Меню внутри футера */
+    #copyright .menu {
+        list-style: none; /* Убираем маркеры у списка */
+        padding: 0;
+        display: flex; /* Делаем элементы в строку */
+        justify-content: center; /* Выравниваем по центру */
+        gap: 15px; /* Промежуток между элементами */
+    }
+
+    /* Ссылки внутри футера */
+    #copyright a {
+        color: #fff; /* Белый цвет ссылок */
+        text-decoration: none; /* Убираем подчеркивание */
+        font-weight: bold; /* Делаем текст жирным */
+    }
+
+        #copyright a:hover {
+            text-decoration: underline; /* Добавляем подчеркивание при наведении */
+        }
+/*фиксируем футер снизу*/
+#footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
