@@ -15,8 +15,8 @@ namespace MyWebApplication.Domain
         {
             base.OnModelCreating(builder);
             string adminName = "admin";
-            string roleAdminId = "65fac756-7cc1-45a9-a558-1ec1380d9fd3";
-            string userAdminId = "f464bd3f-b68f-46cb-a06f-445e4c2a4d89";
+            string roleAdminId = "aeae5fd9-59f1-4f32-a2b4-226d4fed7b57";
+            string userAdminId = "261514b4-de9d-4d6f-97c2-9c93b0a9a529";
             string Email = "olegoviz.2006@gmail.com";
 
 
@@ -34,13 +34,13 @@ namespace MyWebApplication.Domain
                 UserName = adminName,
                 NormalizedUserName = adminName.ToUpper(),
                 Email = Email,
-                NormalizedEmail = Email.ToUpper(),
+                NormalizedEmail = Email,
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(new IdentityUser(),adminName),
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(new IdentityUser(), adminName),
                 SecurityStamp = string.Empty,
                 PhoneNumberConfirmed = true
             });
-            //
+
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>()
             {
                 RoleId = roleAdminId,

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyWebApplication.Domain;
 using MyWebApplication.Infrastructure;
@@ -34,6 +35,16 @@ namespace MyWebApplication
                 options.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<AppDbContext>();
 
+            //Настраиваем Auth Cookie!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "MyWebApplicationAuth";
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = "/login";
+                options.AccessDeniedPath = "/accessdenied"; 
+                options.SlidingExpiration = true;
+            });
+
             //Подключаем функционал контроллеров
             builder.Services.AddControllersWithViews();
 
@@ -48,6 +59,11 @@ namespace MyWebApplication
             //Подключаем систему маршрутизации
             app.UseRouting();
 
+            //Подключаем аутентификацию и авторизацию
+            app.UseCookiePolicy();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             //Регистрируем нужные нам маршруты
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
