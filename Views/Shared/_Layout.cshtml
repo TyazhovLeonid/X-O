@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	@await Html.PartialAsync("_MetaPartial")
+	@await Html.PartialAsync("_CssPartial")
+</head>
+<body class="is-preload">
+	<div id="page-wrapper">
+
+		@await Html.PartialAsync("_HeaderPartial")
+
+		<!-- Main -->
+		<section class="wrapper style1">
+			<div class="container">
+				@RenderBody()
+			</div>
+		</section>
+
+		@await Html.PartialAsync("_FooterPartial")
+
+	</div>
+
+	@await Html.PartialAsync("_ScriptsPartial")
+
+</body>
+</html>

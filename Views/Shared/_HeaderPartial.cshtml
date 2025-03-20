@@ -1,0 +1,20 @@
+﻿@model MyWebApplication.Views.Shared._HeaderPartialModel
+@inject IConfiguration config
+@{
+	AppConfig? appConfig = config.GetSection("Projeect").Get<AppConfig>();
+}
+<div id="header">
+
+	<div class="container">	
+		<header id="header">	
+			<div class="inner">
+                <h1>
+					<a asp-area="" asp-controller="Home" asp-action="Index" id="logo">
+						@appConfig?.Company.CompanyName
+					</a>
+				</h1>
+				@* TODO: ViewComponent *@
+			</div>
+		</header>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+using Microsoft.EntityFrameworkCore;
+using MyWebApplication.Domain;
+using MyWebApplication.Infrastructure;
+
+namespace MyWebApplication
+{
+    public class Program
+    {
+        public static async Task Main(string[] args)
+        {
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+            
+            //Подключаем в конфигурацию файл appsettings.json
+            IConfigurationBuilder configBuild = new ConfigurationBuilder()
+                .SetBasePath(builder.Environment.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            //Оборачиваем секцию Project в объектную форму для удобства
+            IConfiguration configuration = configBuild.Build();
+            AppConfig config = configuration.GetSection("Project").Get<AppConfig>()!;
+
+            //Подключаем контекст БД
+            builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(config.Database.ConnectionString));
+
+            //Подключаем функционал контроллеров
+            builder.Services.AddControllersWithViews();
+
+            //Собираем конфигурацию
+            WebApplication app = builder.Build();
+
+            //! Порядок следования middleware очень важен, они будут выполняться согласно нему
+
+            //Подключаем использование статичных файлов(js,css,любых)
+            app.UseStaticFiles();
+
+            //Подключаем систему маршрутизации
+            app.UseRouting();
+
+            //Регистрируем нужные нам маршруты
+            app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
+            await app.RunAsync();
+        }
+    }
+}

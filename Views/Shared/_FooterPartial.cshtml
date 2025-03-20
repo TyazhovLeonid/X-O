@@ -1,0 +1,21 @@
+﻿@inject IConfiguration config 
+@model MyWebApplication.Views.Shared._FooterPartialModel
+@{
+	AppConfig? appConfig = config.GetSection("Project").Get<AppConfig>();
+}
+<div id="footer">
+	<footer id="footer" class="container">
+		<div class="row">
+			<section class="col-12">				
+				<div class="copyright">
+					<ul class="menu">
+						<li>&copy; @appConfig?.Company.CompanyName. All rights reserved</li>
+						<li>Design: X & O</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+
