@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using MyWebApplication.Domain;
+using MyWebApplication.Domain.Entities;
+using MyWebApplication.Domain.Repositories.Abstract;
+using MyWebApplication.Domain.Repositories.EntityFramework;
 using MyWebApplication.Infrastructure;
 
 namespace MyWebApplication
@@ -22,8 +26,13 @@ namespace MyWebApplication
             AppConfig config = configuration.GetSection("Project").Get<AppConfig>()!;
 
             //Подключаем контекст БД
-            builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(config.Database.ConnectionString));
+            builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(config.Database.ConnectionString)
+                //ИСПРАВЛЯЕМ БАГ
+                .ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
 
+            builder.Services.AddTransient<ICasesRepository, EFCasesRepository>();
+            builder.Services.AddTransient<DataManager>();
+            
             //Настраиваем Identity систему
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
@@ -40,8 +49,8 @@ namespace MyWebApplication
             {
                 options.Cookie.Name = "MyWebApplicationAuth";
                 options.Cookie.HttpOnly = true;
-                options.LoginPath = "/login";
-                options.AccessDeniedPath = "/accessdenied"; 
+                options.LoginPath = "/account/login";
+                options.AccessDeniedPath = "/account/accessdenied"; 
                 options.SlidingExpiration = true;
             });
 

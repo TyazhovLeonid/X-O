@@ -12,7 +12,7 @@ using MyWebApplication.Domain;
 namespace MyWebApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250320143824__initial")]
+    [Migration("20250320144950__initial")]
     partial class _initial
     {
         /// <inheritdoc />
@@ -154,13 +154,13 @@ namespace MyWebApplication.Migrations
                         {
                             Id = "261514b4-de9d-4d6f-97c2-9c93b0a9a529",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e27c4c2-b69a-4e0c-b46b-a40cfcd6e5ee",
+                            ConcurrencyStamp = "d83d19d5-e1f3-4f94-9b2e-70583390c274",
                             Email = "olegoviz.2006@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "olegoviz.2006@gmail.com",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBRdsz1opmwcrn89Qg7neD00ALGm3QskJKwEaIXSjDe6ARe5TEo/kv+jNxDEOj1Oxw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENnNl+3v+F8LMnBI+0oo5ufUOZIeKNq+375Q0ZpLLGo8Q2RUg0PQpryhqwHe9eL+rQ==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
