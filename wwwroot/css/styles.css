@@ -161,9 +161,9 @@ body {
     left: 0;
     width: 100%;
     /* Основной контейнер */
-    .main-log
+} 
 
-{
+.main-log{
     width: 380px;
     padding: 25px;
     background: white;

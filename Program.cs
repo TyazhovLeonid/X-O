@@ -74,7 +74,7 @@ namespace MyWebApplication
             app.UseAuthorization();
             
             //Регистрируем нужные нам маршруты
-            app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute("default", "{controller=Account}/{action=Login}/{id?}");
 
             await app.RunAsync();
         }

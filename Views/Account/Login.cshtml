@@ -3,10 +3,6 @@
     string strTitle = "Вход в личный кабинет";
     ViewBag.Title = strTitle;
 }
-<div>
-    <h1>
-        @strTitle
-    </h1>
     <div class="mainTAJIK">
         <div class="main-log">
             <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.ReturnUrl">
@@ -34,5 +30,4 @@
                 </div>
             </form>
         </div>
-    </div>
-</div>
+    </div> 
