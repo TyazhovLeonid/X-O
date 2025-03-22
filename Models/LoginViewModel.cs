@@ -5,12 +5,10 @@ namespace MyWebApplication.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Логин")]
         public string? UserName { get; set; }
 
         [Required]
-        [UIHint("password")]
-        [Display(Name = "Пароль")]
+        [UIHint("password")]   
         public string? Password { get; set; }
 
         [Display(Name = "Запомнить меня?")]

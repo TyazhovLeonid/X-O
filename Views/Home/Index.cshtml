@@ -1,18 +1,24 @@
-﻿<div class="main">
-    <div class="table">
-        <div>Название</div>
-        <div>Статус</div>
-        <div>Кол-во чел</div>
-        <div>Дата создания</div>
+﻿@await Html.PartialAsync("_HeaderPartial")
+<div class="content">
+    @await Html.PartialAsync("_SidebarPartial")
+    <div class="main">
+        <div class="table">
+            <div>Название</div>
+            <div>Статус</div>
+            <div>Кол-во чел</div>
+            <div>Дата создания</div>
+        </div>
+        <div class="rows">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <div class="rows">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    <div class="filters">Фильтры</div>
 </div>
+@await Html.PartialAsync("_FooterPartial")
