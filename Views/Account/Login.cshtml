@@ -7,5 +7,32 @@
     <h1>
         @strTitle
     </h1>
-    <div class
+    <div class="mainTAJIK">
+        <div class="main-log">
+            <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                <h1>Добро пожаловать</h1>
+                <div class="input-box">
+                    <label asp-for="UserName"> </label>
+                    <input asp-for="UserName"/>
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Password"> </label>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="remember">
+                    <label asp-for="RememberMe"> </label>
+                    <input asp-for="RememberMe" />
+                    <span asp-validation-for="RememberMe"></span>
+                    <a href="#">Забыли пароль?</a>
+                </div>
+                <button type="submit">Войти</button>
+                <div asp-validation-summary="All"> </div>
+                <div class="register-link">
+                    <p>Нет аккаунта? <a href="#">Регистрация</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

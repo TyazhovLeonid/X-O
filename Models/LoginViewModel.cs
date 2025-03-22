@@ -13,7 +13,6 @@ namespace MyWebApplication.Models
         [Display(Name = "Пароль")]
         public string? Password { get; set; }
 
-        
         [Display(Name = "Запомнить меня?")]
         public bool  RememberMe { get; set; }
     }

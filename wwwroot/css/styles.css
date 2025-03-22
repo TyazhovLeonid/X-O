@@ -4,6 +4,14 @@ body {
     padding: 0; /* внутренние отступы*/
     background: #f0f0f0;
 }
+/* Фон для входа */
+.mainTAJIK {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #954ECA, #6D2D91);
+}
 
 .header {
     background: linear-gradient(90deg, #5e2d91, #a56ad7); /*градент*/
@@ -152,3 +160,103 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
+    /* Основной контейнер */
+    .main-log
+
+{
+    width: 380px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Заголовок */
+.main-log h1 {
+    font-size: 26px;
+    color: #6D2D91;
+    margin-bottom: 20px;
+}
+
+/* Поля ввода */
+.input-box {
+    position: relative;
+    margin: 15px 0;
+}
+
+    .input-box input {
+        width: 100%;
+        height: 45px;
+        padding-left: 40px;
+        border: 2px solid #954ECA;
+        border-radius: 8px;
+        outline: none;
+        font-size: 16px;
+        transition: 0.3s;
+        background: #F3E2FF;
+    }
+
+        .input-box input:focus {
+            border-color: #6D2D91;
+        }
+
+    .input-box i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #954ECA;
+    }
+
+/* Запомнить меня и ссылка */
+.remember {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+    .remember a {
+        text-decoration: none;
+        color: #954ECA;
+        font-weight: bold;
+    }
+
+        .remember a:hover {
+            text-decoration: underline;
+        }
+
+/* Кнопка входа */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #954ECA;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    button:hover {
+        background: #6D2D91;
+    }
+
+/* Регистрация */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+    .register-link a {
+        text-decoration: none;
+        color: #954ECA;
+        font-weight: bold;
+    }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
